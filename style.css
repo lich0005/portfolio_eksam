@@ -1,0 +1,341 @@
+/*Font*/
+.diphylleia-regular {
+  font-family: "Diphylleia", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.josefin-sans {
+  font-family: "Josefin Sans", serif;
+  font-weight: 400; /* Light weight */
+  font-style: normal;
+}
+
+.inter-regular {
+  font-family: "Inter", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+/*************************/
+
+* {
+  background-color: #d8dcd1;
+}
+
+/* Basic Reset */
+body,
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+/***********navigation************/
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  padding: 2rem;
+  font-family: "Josefin Sans", serif;
+  font-size: 1.5rem;
+}
+
+ul {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+}
+
+li a {
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+}
+
+/* Hide links for mobile */
+.nav-links {
+  display: flex;
+  flex-direction: column; /* Stack items vertically */
+  background-color: #d8dcd1;
+  position: fixed; /* Cover the entire viewport */
+  top: 0;
+  right: -100%; /* Start at the left edge */
+  width: 50%; /* Take up the full width of the screen */
+  height: 100%; /* Take up the full height of the screen */
+  align-items: center; /* Center links horizontally */
+  justify-content: flex-start; /* Align links closer to the top */
+  gap: 2rem;
+  z-index: 5; /* Ensure it appears above other elements */
+  transition: right 0.5s ease; /* Smooth transition */
+  padding-top: 75px;
+}
+
+/* Burger Menu */
+.burger {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  cursor: pointer;
+  position: absolute; /* Allow positioning relative to the viewport or parent */
+  top: 30px; /* Distance from the top of the page */
+  right: 30px; /* Distance from the right of the page */
+  z-index: 10;
+}
+
+.burger .line {
+  width: 25px;
+  height: 3px;
+  background-color: rgb(0, 0, 0);
+  border-radius: 5px;
+}
+
+/* Show menu when active */
+.nav-links.active {
+  display: flex;
+  right: 0; /* Slide into view */
+}
+
+/* Desktop View */
+@media (min-width: 768px) {
+  .burger {
+    display: none;
+  }
+  .nav-links {
+    display: flex; /* Ensure the links are visible */
+    position: absolute; /* Allows precise positioning */
+    width: auto;
+    height: auto;
+    top: 0; /* Align at the very top of the screen */
+    right: 0; /* Align at the very right of the screen */
+    flex-direction: row; /* Arrange links horizontally */
+    background-color: transparent; /* Remove background in desktop */
+    gap: 2rem; /* Space between links */
+    padding: 2rem; /* Add some spacing around links */
+    transition: none;
+  }
+
+  .nav-links li {
+    margin: 0; /* Reset any margins for desktop */
+  }
+}
+
+/***********header/svg*************/
+
+/* Basic container styling */
+.svg-container {
+  position: relative; /* Change from absolute to relative */
+  margin-bottom: 70px; /* Add spacing between the SVG and the menu */
+  top: 20px;
+  width: 80%; /* Default width for desktop */
+  max-width: 800px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* Grøn Figur SVG settings */
+.gron-figur {
+  width: 100%;
+  height: auto;
+}
+
+/* Header Text SVG settings */
+.header-text {
+  background: none;
+  position: absolute;
+  width: 90%;
+  height: auto;
+  padding-left: 1rem;
+  padding-bottom: 3rem;
+}
+
+/* Media query for mobile version */
+@media (max-width: 768px) {
+  .svg-container {
+    width: 100%; /* Wider on mobile */
+  }
+
+  .gron-figur {
+    width: 100%;
+    height: auto;
+    object-fit: cover; /* Ensures it crops the sides */
+  }
+}
+
+/************Portfolio Expandable*********/
+
+p {
+  font-family: "Inter", serif;
+  line-height: 1.6;
+}
+
+h2 {
+  font-family: "Josefin Sans", serif;
+  font-weight: 500;
+  margin-top: 40px;
+  text-align: center;
+}
+
+h3 {
+  font-family: "Josefin Sans", serif;
+  font-weight: 400;
+  font-size: 1.3rem;
+  margin-top: 30px;
+  text-align: center;
+}
+.menu-container,
+.expandable-menu,
+main {
+  width: 100%;
+  overflow-x: hidden; /* Prevent overflow in flex containers */
+}
+
+/* Menu Container */
+.menu-container {
+  width: 100%; /* Full width of the container */
+  max-width: 1000px; /* Optional: Limit container width */
+  margin: 20px auto; /* Center horizontally with vertical spacing */
+  display: flex; /* Enable Flexbox */
+  flex-direction: column; /* Stack items vertically */
+  align-items: center; /* Center links horizontally */
+  gap: 1rem; /* Add spacing between links */
+}
+
+/* Expandable Menu */
+.expandable-menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%; /* Ensure menu takes full container width */
+  display: flex;
+  flex-direction: column; /* Stack links vertically */
+  align-items: center; /* Center links horizontally */
+  gap: 1rem; /* Add spacing between links */
+}
+
+/* Menu Link Button */
+.menu-link {
+  font-family: "Josefin Sans", serif;
+  font-size: 2rem;
+  font-weight: 600; /* Thicker font */
+  background: none;
+  border: none;
+  color: black;
+  cursor: pointer;
+  text-align: center; /* Center text */
+  width: 100%; /* Make the button take the full width */
+  padding: 10px;
+  position: relative; /* Needed for pseudo-element positioning */
+  transition: background-color 0.3s ease, font-weight 0.3s ease; /* Smooth transitions */
+}
+
+.menu-link:hover {
+  color: #35964c;
+}
+
+/* Add a short line under the active link */
+.menu-link::after {
+  content: "";
+  position: absolute;
+  bottom: 0; /* Position the line at the bottom of the link */
+  left: 50%; /* Start in the middle */
+  transform: translateX(-50%) scaleX(0); /* Start collapsed */
+  width: 10%; /* Length of the line */
+  height: 2px; /* Thickness of the line */
+  background-color: #35964c; /* Line color */
+  transition: transform 0.3s ease; /* Smooth scaling */
+}
+
+/* Show the line for the active link */
+.menu-link.active::after {
+  transform: translateX(-50%) scaleX(1); /* Fully expanded */
+}
+
+/* Hidden Content */
+.menu-content {
+  overflow: hidden; /* Required for smooth height transition */
+  max-height: 0; /* Collapsed by default */
+  font-size: 1rem;
+  margin-top: 20px; /* Add 20px space between the content and the button */
+  padding: 0 15px; /* Padding for horizontal spacing only */
+  max-width: 1100px; /* Match the button width */
+  transition: max-height 0.5s ease, margin-top 0.5s ease; /* Smooth roll-down effect */
+}
+
+/* Show Content When Active */
+.menu-content.active {
+  max-height: 500px; /* Expand smoothly; adjust as needed */
+}
+
+/**********************billeder************************/
+
+.web_billeder {
+  display: flex;
+  gap: 20px; /* Space between images */
+  margin-bottom: 15px;
+  justify-content: center;
+  /* align-items: stretch; */
+}
+
+.web_billeder img {
+  max-width: 100%; /* Ensure images don't exceed the container width */
+  height: auto; /* Maintain aspect ratio */
+  object-fit: contain; /* Ensure images are resized properly */
+}
+
+@media (max-width: 768px) {
+  .menu-content > div {
+    display: flex;
+    justify-content: center; /* Center images horizontally */
+    flex-wrap: wrap;
+  }
+
+  .menu-content > div img {
+    max-width: 100%; /* Full width for smaller screens */
+  }
+
+  .web_billeder img {
+    height: auto;
+    margin-bottom: 20px; /* Space between images */
+    margin-top: 10px;
+  }
+}
+
+.menu-content .last img {
+  margin-bottom: 90px; /* Extra space below the last image */
+}
+
+.cc_hjemmeside {
+  min-width: 50%;
+}
+
+/* .video_container {
+  max-width: 80%;
+} */
+
+.om_mig {
+  font-size: 3rem;
+}
+
+.om_mig_p {
+  display: flex;
+  justify-content: center; /* Center content horizontally */
+  max-width: 900px; /* Limit the width of the container */
+  margin: 0 auto; /* Center the container itself within its parent */
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.portræt {
+  padding-left: 20px;
+  padding-right: 20px;
+  max-width: 300px;
+}
+
+footer {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+}
